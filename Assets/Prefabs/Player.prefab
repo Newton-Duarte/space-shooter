@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: -8404131734652128917}
   - component: {fileID: 6677528339911141397}
   - component: {fileID: -533256968733352501}
-  m_Layer: 0
+  - component: {fileID: 68501904370221120}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -212,3 +213,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitEffect: {fileID: 7459985684589015834, guid: f1763eb45a52b0e4f9dc6de07794b5c1, type: 3}
+  applyCameraShake: 1
+--- !u!114 &68501904370221120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317932474550783214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa42909b10e82db45b58df68967515c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7659538788670960790, guid: aa0fa274b0f31d14b82f3ff1184c31ed, type: 3}
+  projectileSpeed: 10
+  projectileLifetime: 5
+  baseFiringRate: 0.2
+  useAI: 0
+  firingRateVariance: 0
+  minimumFiringRate: 0.1
+  isFiring: 0
