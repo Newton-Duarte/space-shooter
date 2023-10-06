@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,17 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health = 50;
+    [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] bool applyCameraShake;
+
+    CameraShake cameraShake;
+    AudioPlayer audioPlayer;
+
+    void Awake()
+    {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+        audioPlayer = FindAnyObjectByType<AudioPlayer>();
+    }
 
     public void TakeDamage(int damage)
     {
@@ -23,7 +35,27 @@ public class Health : MonoBehaviour
         if (damageDealer != null)
         {
             TakeDamage(damageDealer.GetDamage());
+            PlayHitEffect();
+            audioPlayer.PlayDamageClip();
+            ShakeCamera();
             damageDealer.Hit();
+        }
+    }
+
+    void PlayHitEffect()
+    {
+        if (hitEffect != null)
+        {
+            ParticleSystem explosion = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(explosion.gameObject, explosion.main.duration + explosion.main.startLifetime.constantMax);
+        }
+    }
+
+    void ShakeCamera()
+    {
+        if (cameraShake != null && applyCameraShake)
+        {
+            cameraShake.Play();
         }
     }
 }
