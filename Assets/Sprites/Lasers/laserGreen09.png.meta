@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      laserGreen09_0: 7754449208332476395
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

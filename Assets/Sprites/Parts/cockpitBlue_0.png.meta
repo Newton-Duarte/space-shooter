@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cockpitBlue_0_0: -3540318079643599023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

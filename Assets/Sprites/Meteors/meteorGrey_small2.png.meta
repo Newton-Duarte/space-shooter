@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      meteorGrey_small2_0: -5882003297275017081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

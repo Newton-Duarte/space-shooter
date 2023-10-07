@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      meteorBrown_small2_0: -1299205367528621936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

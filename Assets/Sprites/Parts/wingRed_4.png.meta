@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wingRed_4_0: 2981456727340687322
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

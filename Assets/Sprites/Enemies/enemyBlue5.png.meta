@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemyBlue5_0: 7846364067282740453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
