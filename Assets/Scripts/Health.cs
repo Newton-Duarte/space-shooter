@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] bool isPlayer;
+    [SerializeField] int maxHealth = 50;
     [SerializeField] int health = 50;
     [SerializeField] int score = 50;
     [SerializeField] ParticleSystem hitEffect;
@@ -15,6 +16,7 @@ public class Health : MonoBehaviour
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
+    CollectibleManager collectibleManager;
 
     void Awake()
     {
@@ -22,11 +24,18 @@ public class Health : MonoBehaviour
         audioPlayer = FindAnyObjectByType<AudioPlayer>();
         scoreKeeper = FindAnyObjectByType<ScoreKeeper>();
         levelManager = FindAnyObjectByType<LevelManager>();
+        collectibleManager = FindAnyObjectByType<CollectibleManager>();
     }
 
     public int GetHealth()
     {
         return health;
+    }
+
+    public void SetHealth(int value)
+    {
+        health += value;
+        if (health > maxHealth) { health = maxHealth; }
     }
 
     public void TakeDamage(int damage)
@@ -39,11 +48,12 @@ public class Health : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         if (!isPlayer)
         {
             scoreKeeper.SetScore(score);
+            collectibleManager.DropCollectible(transform);
         }
         else
         {
