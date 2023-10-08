@@ -18,6 +18,7 @@ public class Shooter : MonoBehaviour
 
     [HideInInspector] public bool isFiring;
 
+    GameObject[] playerWeapons;
     AudioPlayer audioPlayer;
     Coroutine firingRoutine;
 
@@ -39,6 +40,11 @@ public class Shooter : MonoBehaviour
         Fire();
     }
 
+    public void SetPlayerWeapons(GameObject[] weapons)
+    {
+        playerWeapons = weapons;
+    }
+
     void Fire()
     {
         if (isFiring && firingRoutine == null)
@@ -56,17 +62,35 @@ public class Shooter : MonoBehaviour
     {
         while (true)
         {
-            GameObject projectil = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Rigidbody2D projectilRb = projectil.GetComponent<Rigidbody2D>();
-
-            if (projectilRb != null)
+            if (useAI)
             {
-                projectilRb.velocity = transform.up * projectileSpeed;
+                GameObject projectil = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                Rigidbody2D projectilRb = projectil.GetComponent<Rigidbody2D>();
+
+                if (projectilRb != null)
+                {
+                    projectilRb.velocity = transform.up * projectileSpeed;
+                }
+
+                Destroy(projectil, projectileLifetime);
+            }
+            else
+            {
+                foreach (GameObject playerWeapon in playerWeapons)
+                {
+                    GameObject projectil = Instantiate(projectilePrefab, playerWeapon.transform.position, Quaternion.identity);
+                    Rigidbody2D projectilRb = projectil.GetComponent<Rigidbody2D>();
+
+                    if (projectilRb != null)
+                    {
+                        projectilRb.velocity = transform.up * projectileSpeed;
+                    }
+
+                    Destroy(projectil, projectileLifetime);
+                }
             }
 
             audioPlayer.PlayShootingClip();
-
-            Destroy(projectil, projectileLifetime);
             float timeToNextProjectile = UnityEngine.Random.Range(baseFiringRate - firingRateVariance, baseFiringRate + firingRateVariance);
             yield return new WaitForSeconds(Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue));
         }
