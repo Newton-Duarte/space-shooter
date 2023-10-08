@@ -23,7 +23,7 @@ public class AudioPlayer : MonoBehaviour
         PlayClip(damageClip, damageVolume);
     }
 
-    void PlayClip(AudioClip clip, float volume)
+    public void PlayClip(AudioClip clip, float volume)
     {
         if (clip != null)
         {
