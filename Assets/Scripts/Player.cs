@@ -13,18 +13,21 @@ public class Player : MonoBehaviour
     [SerializeField] float paddingBottom = 0.5f;
     [SerializeField] GameObject playerShield;
     [SerializeField] GameObject[] playerWeapons;
+    [SerializeField] Sprite[] playerSprites;
 
-    int currentPowerUp = 1;
+    int currentPowerUp = 0;
 
     Vector2 rawInput;
     Vector2 minBounds;
     Vector2 maxBounds;
 
+    SpriteRenderer sr;
     Shooter shooter;
     CollectibleManager collectibleManager;
 
     void Awake()
     {
+        sr = GetComponent<SpriteRenderer>();
         shooter = GetComponent<Shooter>();
         collectibleManager = FindAnyObjectByType<CollectibleManager>();
     }
@@ -33,10 +36,16 @@ public class Player : MonoBehaviour
     {
         InitBounds();
         playerShield.SetActive(false);
-        HandlePlayerInitialWeapons();
+        HandlePlayerWeapons();
+        HandlePlayerSprites();
     }
 
-    void HandlePlayerInitialWeapons()
+    void HandlePlayerSprites()
+    {
+        sr.sprite = playerSprites[currentPowerUp];
+    }
+
+    void HandlePlayerWeapons()
     {
         List<GameObject> activeWeapons = new();
 
@@ -102,19 +111,21 @@ public class Player : MonoBehaviour
 
     public void PowerUp()
     {
+        if (currentPowerUp == 2) return;
+
         currentPowerUp++;
 
-        if (currentPowerUp == 1)
+        if (currentPowerUp == 0)
         {
             playerWeapons[0].SetActive(true);
         }
-        else if (currentPowerUp == 2)
+        else if (currentPowerUp == 1)
         {
             playerWeapons[0].SetActive(false);
             playerWeapons[1].SetActive(true);
             playerWeapons[2].SetActive(true);
         }
-        else if (currentPowerUp == 3)
+        else if (currentPowerUp == 2)
         {
             foreach(var weapon in playerWeapons)
             {
@@ -122,6 +133,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        HandlePlayerInitialWeapons();
+        HandlePlayerWeapons();
+        HandlePlayerSprites();
     }
 }
