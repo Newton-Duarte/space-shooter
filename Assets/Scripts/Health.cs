@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
     CollectibleManager collectibleManager;
+    FlashEffect flashEffect;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class Health : MonoBehaviour
         scoreKeeper = FindAnyObjectByType<ScoreKeeper>();
         levelManager = FindAnyObjectByType<LevelManager>();
         collectibleManager = FindAnyObjectByType<CollectibleManager>();
+        flashEffect = GetComponent<FlashEffect>();
     }
 
     public int GetHealth()
@@ -41,6 +43,11 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        if (flashEffect != null)
+        {
+            flashEffect.Flash();
+        }
 
         if (health <= 0)
         {
