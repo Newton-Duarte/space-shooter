@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -8392677260953726069}
   - component: {fileID: 7819063204147348312}
   - component: {fileID: -6809862851671862328}
+  - component: {fileID: -1247513670049465336}
   m_Layer: 7
   m_Name: Enemy0
   m_TagString: Enemy
@@ -216,3 +217,17 @@ MonoBehaviour:
   firingRateVariance: 0.5
   minimumFiringRate: 0.1
   isFiring: 0
+--- !u!114 &-1247513670049465336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4992763003557115058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7a07ec15197947b0151f8fa78fcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 826f81cccc3943d489e99fcb9797cbf5, type: 2}
+  duration: 0.125
