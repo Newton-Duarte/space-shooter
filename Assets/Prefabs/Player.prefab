@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 6677528339911141397}
   - component: {fileID: -533256968733352501}
   - component: {fileID: 68501904370221120}
+  - component: {fileID: 1330651088668795270}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -465,6 +466,10 @@ MonoBehaviour:
   - {fileID: 465799101306988791}
   - {fileID: 1965701097965924719}
   - {fileID: 3884048041675323853}
+  playerSprites:
+  - {fileID: -354191649082998739, guid: 6e25f5a7abfc95e438f4b969f6faa2f1, type: 3}
+  - {fileID: 8587340271344757162, guid: dbe8d17a1a609aa4fbbb77b115de3a43, type: 3}
+  - {fileID: -2600750394082780314, guid: 0dd732d93c49b8b42ada4eea2430ac4e, type: 3}
 --- !u!114 &-533256968733352501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +508,20 @@ MonoBehaviour:
   firingRateVariance: 0
   minimumFiringRate: 0.1
   isFiring: 0
+--- !u!114 &1330651088668795270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317932474550783214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7a07ec15197947b0151f8fa78fcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 826f81cccc3943d489e99fcb9797cbf5, type: 2}
+  duration: 0.125
 --- !u!1 &3612222089607348276
 GameObject:
   m_ObjectHideFlags: 0
