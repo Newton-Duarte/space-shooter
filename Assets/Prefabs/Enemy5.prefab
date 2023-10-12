@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  maxHealth: 50
+  maxHealth: 30
   health: 30
-  score: 35
+  score: 80
   hitEffect: {fileID: 7459985684589015834, guid: f1763eb45a52b0e4f9dc6de07794b5c1, type: 3}
   applyCameraShake: 0
 --- !u!114 &7819063204147348312
