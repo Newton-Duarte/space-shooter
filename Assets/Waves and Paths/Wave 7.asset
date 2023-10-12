@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Wave 7
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4992763003557115058, guid: d113b39746bedbb4e883197035c9ad9d, type: 3}
-  - {fileID: 4992763003557115058, guid: d113b39746bedbb4e883197035c9ad9d, type: 3}
-  - {fileID: 4992763003557115058, guid: d113b39746bedbb4e883197035c9ad9d, type: 3}
-  - {fileID: 4992763003557115058, guid: d113b39746bedbb4e883197035c9ad9d, type: 3}
-  - {fileID: 4992763003557115058, guid: d113b39746bedbb4e883197035c9ad9d, type: 3}
+  - {fileID: 4992763003557115058, guid: 2978a78a4ea3cf848b8f6cbcd46dde60, type: 3}
+  - {fileID: 4992763003557115058, guid: 2978a78a4ea3cf848b8f6cbcd46dde60, type: 3}
+  - {fileID: 4992763003557115058, guid: 2978a78a4ea3cf848b8f6cbcd46dde60, type: 3}
+  - {fileID: 4992763003557115058, guid: 2978a78a4ea3cf848b8f6cbcd46dde60, type: 3}
+  - {fileID: 4992763003557115058, guid: 2978a78a4ea3cf848b8f6cbcd46dde60, type: 3}
   pathPrefab: {fileID: 2753636165040775064, guid: 6c622b5268bb5304b9b0b605d3f7a8af, type: 3}
-  moveSpeed: 3.4
-  timeBetweenEnemySpawns: 0.9
+  moveSpeed: 2.7
+  timeBetweenEnemySpawns: 0.85
   spawnTimeVariance: 0.5
   minimumSpawnTime: 0.2
