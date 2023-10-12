@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifetime = 5f;
     [SerializeField] float baseFiringRate = 0.2f;
+    [SerializeField] bool isGuided;
 
     [Header("AI")]
     [SerializeField] bool useAI;
@@ -18,12 +19,14 @@ public class Shooter : MonoBehaviour
 
     [HideInInspector] public bool isFiring;
 
+    Player player;
     GameObject[] playerWeapons;
     AudioPlayer audioPlayer;
     Coroutine firingRoutine;
 
     void Awake()
     {
+        player = FindAnyObjectByType<Player>();
         audioPlayer = FindAnyObjectByType<AudioPlayer>();
     }
 
@@ -64,7 +67,12 @@ public class Shooter : MonoBehaviour
         {
             if (useAI)
             {
-                GameObject projectil = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                if (isGuided && player != null)
+                {
+                    transform.up = player.transform.position - transform.position;
+                }
+
+                GameObject projectil = Instantiate(projectilePrefab, transform.position, transform.localRotation);
                 Rigidbody2D projectilRb = projectil.GetComponent<Rigidbody2D>();
 
                 if (projectilRb != null)
